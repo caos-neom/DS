@@ -1,0 +1,60 @@
+<script>
+let operacao
+let valor_1
+let valor_2
+let resultado
+
+function setValor1() {
+    valor_1 = Number(prompt('digite o primeiro valor'))
+}
+
+function setValor2() {
+   valor_2 = Number(prompt('digite o primeiro valor')) 
+}
+function setOperacao() {
+ operacao = prompt ('digite a operacao desejada: +-/*')   
+}
+function cauculate() {
+    if(operacao == '+')
+    somar()
+    if(operacao == '-')
+ subtrair()
+    if(operacao == '*')
+    multiplicar()
+    if(operacao == '/')
+    dividir()
+}
+
+function somar(){
+    if(operacao == '+')
+resultado = valor_1 + valor_2
+}
+function subtrair(){
+
+} if(operacao == '-')
+resultado = valor_1 - valor_2
+function multiplicar(){
+    if(operacao == '*')
+resultado = valor_1 * valor_2
+}
+function dividir(){
+    if(operacao == '/')
+    resultado = valor_1 / valor_2
+}
+
+function showResult() {
+    alert(`${valor_1}  ${operacao} ${valor_2} = ${resultado}` )
+}
+
+setValor1()
+setValor2()
+setOperacao()
+cauculate()
+showResult()
+somar()
+subtrair()
+multiplicar()
+dividir()
+
+
+</script>
