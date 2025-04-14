@@ -1,0 +1,41 @@
+<script>
+
+let lampada = []
+
+vereficaOndeEstou('cadeira')
+
+levantar()
+caminharAteInterruptor()
+
+interrutorLigar()
+interrutorDesligar()
+
+
+
+function vereficaOndeEstou(local){
+
+if(local == 'cadeira')
+levantar()
+if(local == 'em pé')
+caminharAteInterruptor()
+if(local == 'deitado')
+levantar()
+}
+
+function levantar (){
+    console.log('você levantou')
+}
+
+function caminharAteInterruptor(){
+    console.log('você está na frente do interruptor')
+}
+
+
+function interrutorLigar (){
+console.log('lampada ligada')
+}
+
+function interrutorDesligar (){
+console.log('lampada desligada')
+}
+</script>
