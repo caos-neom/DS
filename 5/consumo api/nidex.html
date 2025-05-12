@@ -21,7 +21,7 @@
 </div>
 
 <div class="container">
-    <div class="row id= lista paises" id="container_list">
+    <div class="row" id="countries_list">
 
     </div>
 </div>
@@ -37,34 +37,85 @@ let countries_list = document.querySelector('#countries_list')
 fetch(`https://restcountries.com/v3.1/name/${input_search.value}`)
     .then(resp => resp.json())
     .then( resp=> {
+
         resp.forEach(country=> {
-            
-        console.log(country)
+            console.log(country)
 
-    let img = document.createElement('img') 
-    img.setAttribute('src', country.flags.svg)
-img.style.width = '100%'
+            let img = document.createElement('img') 
+            img.setAttribute('src', country.flags.svg)
+            img.style.width = '100%'
+            img.style.borderRadius = '8px'
 
-    let col = document.createElement('div')
-col.classList.add("col-4")
+            let title = document.createElement('h2')
+            title.innerText = country.name.common
 
-col.appendChild(img)
-countries_list.appendChild(col)
+            let subtitulo = document.createElement('div')
+            subtitulo.innerText = country.name.official
 
-    
+            let capital = document.createElement('div')
+            capital.innerText = country.capital
+
+            let populacao = document.createElement('p')
+            populacao.innerText = country.population
+
+            let map = document.createElement('a')
+            map.setAttribute('herf', country.maps.googleMaps)
+            map.innerText = 'Map'
+
+            let continente = document.createElement('div')
+            continente.innerText = country.region
+
+            let subreg = document.createElement('div')
+            subreg.innerText = country.subregion
+
+            let border = document.createElement('h6')
+            border.innerText = country.borders
+            border.style.wordBreak = 'break-all'
+
+            let indepedncia = document.createElement('div')
+            indepedncia.innerText = country.independent
+
+            let exercito = document.createElement('img')
+            exercito.setAttribute('src', country.coatOfArms.svg)
+            exercito.style.width = '100%'
+            exercito.style.borderRadius = '8px'
+
+            let timezones = document.createElement('div')
+            timezones.innerText = country.timezones
+
+            let col = document.createElement('div')
+            col.classList.add("col-4")
+
+            col.appendChild(img)
+            col.appendChild(title)
+            col.appendChild(subtitulo)
+            col.appendChild(capital)
+            col.appendChild(populacao)
+            col.appendChild(map)
+            col.appendChild(continente)
+            col.appendChild(subreg)            
+            col.appendChild(border)        
+            col.appendChild(indepedncia)        
+            col.appendChild(exercito)        
+            col.appendChild(timezones)                   
+            countries_list.appendChild(col)
+        })
+    })
     .catch(erro => {
         console.log(erro)
     })
     .finally(()=>{
         console.log('requisição finalizada')
-  })})})
+  })
+}
+   
     
     
     
     
     
     
-    }
+    
 </script>
 
 
