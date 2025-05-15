@@ -83,9 +83,20 @@ fetch(`https://restcountries.com/v3.1/name/${input_search.value}`)
             let timezones = document.createElement('div')
             timezones.innerText = country.timezones
 
+            let moeda = document.createElement('div')
+            moeda.innerText = Object.keys(country.currencies)
+
+            let lingua = document.createElement('div')
+            lingua.innerText = Object.keys(country.languages)
+
+            let local = document.createElement('div')
+            local.innerText = country.latlng
+           
+
             let col = document.createElement('div')
             col.classList.add("col-4")
 
+            
             col.appendChild(img)
             col.appendChild(title)
             col.appendChild(subtitulo)
@@ -97,7 +108,10 @@ fetch(`https://restcountries.com/v3.1/name/${input_search.value}`)
             col.appendChild(border)        
             col.appendChild(indepedncia)        
             col.appendChild(exercito)        
-            col.appendChild(timezones)                   
+            col.appendChild(timezones)     
+            col.appendChild(moeda)  
+            col.appendChild(lingua) 
+            col.appendChild(local)   
             countries_list.appendChild(col)
         })
     })
