@@ -92,6 +92,23 @@ fetch(`https://restcountries.com/v3.1/name/${input_search.value}`)
             let local = document.createElement('div')
             local.innerText = country.latlng
            
+            
+            let geografia = document.createElement('iframe')
+            geografia.setAttribute('src',`https://www.google.com/maps?q=-15.79,-47${country.latlng}.88&hl=pt-BR&z=6&output=embed`,)
+            geografia.setAttribute.width = '600'
+            geografia.setAttribute.height = '450'
+            geografia.setAttribute.style= 'border:0'
+            
+            
+// <iframe
+//     src="https://www.google.com/maps?q=-15.79,-47.88&hl=pt-BR&z=6&output=embed" 
+//     width="600" 
+//     height="450" 
+//     style="border:0;" 
+//     allowfullscreen="" 
+//     loading="lazy"
+//     referrerpolicy="no-referrer-when-downgrade">
+// </iframe>
 
             let col = document.createElement('div')
             col.classList.add("col-4")
@@ -111,7 +128,8 @@ fetch(`https://restcountries.com/v3.1/name/${input_search.value}`)
             col.appendChild(timezones)     
             col.appendChild(moeda)  
             col.appendChild(lingua) 
-            col.appendChild(local)   
+            col.appendChild(local) 
+            col.appendChild(geografia)  
             countries_list.appendChild(col)
         })
     })
