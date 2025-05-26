@@ -94,7 +94,7 @@ fetch(`https://restcountries.com/v3.1/name/${input_search.value}`)
            
             
             let geografia = document.createElement('iframe')
-            geografia.setAttribute('src',`https://www.google.com/maps?q=-15.79,-47${country.latlng}.88&hl=pt-BR&z=6&output=embed`,)
+            geografia.setAttribute('src',`https://www.google.com/maps?q=${country.latlng}.88&hl=pt-BR&z=6&output=embed`,)
             geografia.setAttribute.width = '600'
             geografia.setAttribute.height = '450'
             geografia.setAttribute.style= 'border:0'
