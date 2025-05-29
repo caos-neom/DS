@@ -84,15 +84,24 @@ let  = document.querySelector('#')
 
 
 
-fetch(`https://api.nasa.gov/planetary/apod?count=5&api_key=DEMO_KEY${input_search.value}`)
+fetch(`https://api.nasa.gov/planetary/apod?api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC3CMKAmlsLJe`)
     .then(resp => resp.json())
     .then( resp=> {
+      console.log(resp);
+        resp.forEach(planetary=> {
+            console.log(planetary)
+        
+            let img = document.createElement('img') 
+            img.setAttribute('src',planetary.apod.url)
+            img.style.width = '100%'
+            img.style.borderRadius = '8px'
+        console.log(planetary.apod.url)
 
-        resp.forEach(country=> {
-            console.log(country)
-        
-        
-        
+            let col = document.createElement('div')
+            col.classList.add("col-4")
+
+            col.appendChild(img)
+            countries_list.appendChild(col)
         })})}
 </script>
 
