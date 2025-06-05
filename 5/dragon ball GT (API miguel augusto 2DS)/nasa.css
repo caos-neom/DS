@@ -1,9 +1,14 @@
-#705CF2
+/* #705CF2
 #2D2A40
 #0A04BF
 #555673
-#8A8BA6
+#8A8BA6 */
+
+* {
+    outline: 1px solid red;
+}
 
 body{
+   /* background-color: black; */
     background-image:"https://img.elo7.com.br/product/zoom/16B1889/painel-espaco-g-frete-gratis-tema-de-festa-infantil.jpg";
 }
