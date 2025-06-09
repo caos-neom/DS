@@ -50,63 +50,66 @@
         
       </div>
 
- 
-      <div class="conteiner-fluid">
-        <div class="row d-flex justify-content-center">
-          <div class="col-10 bg-black">
-      
-            <div class="container-fluid d-flex justify-content-center bg-black" id="texto" style="padding: 20px;">
-              <div class="row">
-                <div class="col-12 bg-black">
-                  <h1 style="color: aliceblue;">Veja as Fotos de marte</h1>
-                </div>
-              </div>
-            </div>
-            <div class="container-fluid d-flex justify-content-center" id="imagem_5_dia">
+<div class="conteiner-fluid">
+    <div class="row d-flex justify-content-center">
+      <div class="col-10 bg-black">
   
-  <script>
+        <div class="container-fluid d-flex justify-content-center bg-black" id="texto" style="padding: 20px;">
+          <div class="row">
+            <div class="col-12 bg-black">
+              <h1 style="color: aliceblue;">Veja as Fotos Astronômicas de Hoje</h1>
+              <h3 style="color: aliceblue;">Veja logo abaixo</h3>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid d-flex justify-content-center" id="imagemDia">
 
-      
-
-
-
-
-      let mars_rover = document.querySelector('#imagemMarte')
-
-fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=PBFbUJXefPkim5a7P9AGgvPHglaDqY1s1VQx3QVk`)
+<script>
+let imagem_do_dia = document.querySelector('#imagemDia')
+    
+fetch(`https://api.nasa.gov/planetary/apod?api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC3CMKAmlsLJe`)
 .then(resp=> resp.json())
-    .then(resp =>{
+.then(resp =>{
 
+    let col = document.createElement('div')
+    col.style.display = 'flex'
+    col.style.alignItems = 'center'
+    col.style.padding = '20px'
+    col.style.color = 'white'
+    col.classList.add("col-12")
 
-let col = document.createElement('div')
-col.style.display = 'flex'
-        col.style.alignItems = 'center'
-        col.style.padding = '20px'
-        col.style.color = 'white'
-        col.classList.add("col-12")
+    let img = document.createElement('img')
+    img.setAttribute('src',resp.url)
+    img.style.width = '40%'
+    img.style.padding = '25x'
+    
+    let colTexto = document.createElement('div')
+    colTexto.classList.add("col-6")
+    
+    
+    let title = document.createElement('h1')
+    title.innerText = resp.title
+    
+    let explicacao = document.createElement('h4')
+    explicacao.innerText = resp.explanation
+  
+    let date = document.createElement('h4')
+    date.innerText = resp.date
 
-
-
-
-
-
-        col.appendChild(img)
-        mars_rover.appendChild(col)
-    })
-
-    .catch(erro => {
+    
+    
+    col.appendChild(img)
+    col.appendChild(colTexto)
+    colTexto.appendChild(date)
+    colTexto.appendChild(title)
+    colTexto.appendChild(explicacao)
+    imagem_do_dia.appendChild(col)
+  })
+  
+  .catch(erro => {
       console.log(erro);
     })
     .finally( () => {
       console.log('Requisição Finalizada!');
     })
   </script>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-     </div>
-  </div>
-</div>
-  </body>
-</html>
