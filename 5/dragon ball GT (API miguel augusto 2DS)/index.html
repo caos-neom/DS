@@ -62,7 +62,10 @@
                 </div>
               </div>
             </div>
-            <div class="container-fluid d-flex justify-content-center" id="imagem_5_dia">
+
+            <div class="container-fluid d-flex justify-content-center">
+              <div class="row" id="imagemMarte"></div>
+            </div>
   
   <script>
 
@@ -77,22 +80,31 @@ fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&
 .then(resp=> resp.json())
     .then(resp =>{
 
+console.log(resp)
 
-let col = document.createElement('div')
-col.style.display = 'flex'
-        col.style.alignItems = 'center'
-        col.style.padding = '20px'
-        col.style.color = 'white'
-        col.classList.add("col-12")
+      let photos = resp.photos;
 
+      photos.forEach(photo => {
+        let img = document.createElement('img')
+        img.setAttribute('src',photo.img_src)
+        img.style.width = '100%'
+        // img.style.padding = '25x'
+    
+        let nome = document.createElement('p')
+        nome.innerText
+          // full_name
+          // id
 
-
-
-
-
+        let col = document.createElement('col')
+        col.classList.add('col-4')
+       
         col.appendChild(img)
+
         mars_rover.appendChild(col)
-    })
+      });
+
+
+  })
 
     .catch(erro => {
       console.log(erro);
