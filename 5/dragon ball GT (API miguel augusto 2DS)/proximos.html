@@ -84,21 +84,19 @@ console.log(resp)
 
 let photos = resp.near_earth_objects;
 
-  // console.log(photos.near_earth_objects)
-
       photos.forEach(photo => {
         
         let name = document.createElement('h2')
-        name.innerText = photos.name
+        name.innerText = Object.keys(photos.name)
 
 let dMax = document.createElement('h3')
-dMax.innerText = photos.estimated_diameter.estimaed_diameter_max
+dMax.innerText = Object.keys(photos.estimated_diameter.estimaed_diameter_max)
 
 let dMin = document.createElement('h3')
-dMin.innerText = photos.estimated_diameter.estimaed_diameter_min
+dMin.innerText = Object.keys(photos.estimated_diameter.estimaed_diameter_min)
 
 let perigo = document.createElement('h3')
-perigo.innerText = photos.is_potentially_hazardous_asteroid
+perigo.innerText = Object.keys(photos.is_potentially_hazardous_asteroid)
 
 
         let col = document.createElement('col')  

@@ -58,13 +58,13 @@
             <div class="container-fluid d-flex justify-content-center bg-black" id="texto" style="padding: 20px;">
               <div class="row">
                 <div class="col-12 bg-black">
-                  <h1 style="color: aliceblue;">Veja as Fotos dos objetos próximos a terra</h1>
+                  <h1 style="color: aliceblue;">Veja as Fotos de marte</h1>
                 </div>
               </div>
             </div>
 
             <div class="container-fluid d-flex justify-content-center">
-              <div class="row" id="proximos"></div>
+              <div class="row" id="imagemMarte"></div>
             </div>
   
   <script>
@@ -74,42 +74,37 @@
 
 
 
-      let mars_rover = document.querySelector('proximos')
+      let mars_rover = document.querySelector('#imagemMarte')
 
-fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=2025-05-20&end_date=2025-05-26&api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC3CMKAmlsLJe`)
+fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC3CMKAmlsLJe`)
 .then(resp=> resp.json())
     .then(resp =>{
 
 console.log(resp)
 
-let photos = resp.near_earth_objects;
-
-  // console.log(photos.near_earth_objects)
+      let photos = resp.photos;
 
       photos.forEach(photo => {
-        
-        let name = document.createElement('h2')
-        name.innerText = photos.name
+        let img = document.createElement('img')
+        img.setAttribute('src',photo.img_src)
+        img.style.width = '100%'
+        // img.style.padding = '25x'
+    
+        let nome = document.createElement('p')
+        nome.innerText =photo.camera.full_name
+        nome.style.color = ('white')
+          // full_name
+          // id
 
-let dMax = document.createElement('h3')
-dMax.innerText = photos.estimated_diameter.estimaed_diameter_max
-
-let dMin = document.createElement('h3')
-dMin.innerText = photos.estimated_diameter.estimaed_diameter_min
-
-let perigo = document.createElement('h3')
-perigo.innerText = photos.is_potentially_hazardous_asteroid
-
-
-        let col = document.createElement('col')  
+        let col = document.createElement('col')
         col.classList.add('col-4')
+       
+        col.appendChild(img)
+        col.appendChild(nome)
+        mars_rover.appendChild(col)
+      });
 
-        col.appendChild(name)
-        col.appendChild(perigo)
-        col.appendChild(dMax)
-        col.appendChild(dMin)       
-        proximos.appendChild(col)
-    })
+
   })
 
     .catch(erro => {
