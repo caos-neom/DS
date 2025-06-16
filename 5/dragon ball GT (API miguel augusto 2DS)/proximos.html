@@ -74,7 +74,7 @@
 
 
 
-      let mars_rover = document.querySelector('proximos')
+      let proximos = document.querySelector('proximos')
 
 fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=2025-05-20&end_date=2025-05-26&api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC3CMKAmlsLJe`)
 .then(resp=> resp.json())
@@ -82,21 +82,23 @@ fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=2025-05-20&end_date=2025
 
 console.log(resp)
 
-let photos = resp.near_earth_objects;
+let photos = resp.near_earth_objects
+
+  console.log(photos.near_earth_objects)
 
       photos.forEach(photo => {
         
         let name = document.createElement('h2')
-        name.innerText = Object.keys(photos.name)
+        name.innerText = photos.name
 
 let dMax = document.createElement('h3')
-dMax.innerText = Object.keys(photos.estimated_diameter.estimaed_diameter_max)
+dMax.innerText = photos.estimated_diameter.estimaed_diameter_max
 
 let dMin = document.createElement('h3')
-dMin.innerText = Object.keys(photos.estimated_diameter.estimaed_diameter_min)
+dMin.innerText = photos.estimated_diameter.estimaed_diameter_min
 
 let perigo = document.createElement('h3')
-perigo.innerText = Object.keys(photos.is_potentially_hazardous_asteroid)
+perigo.innerText = photos.is_potentially_hazardous_asteroid
 
 
         let col = document.createElement('col')  
