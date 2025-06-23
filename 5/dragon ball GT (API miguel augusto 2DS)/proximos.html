@@ -74,7 +74,7 @@
 
 
 
-      let proximos = document.querySelector('proximos')
+      let proximos = document.querySelector('#proximos')
 
 fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=2025-05-20&end_date=2025-05-26&api_key=aiqrPSFfKCaCMwM2gDt6UW6DhlAfC3CMKAmlsLJe`)
 .then(resp=> resp.json())
@@ -82,28 +82,44 @@ fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=2025-05-20&end_date=2025
 
 console.log(resp)
 
-let photos = resp.near_earth_objects
+const objetosPorData = resp.near_earth_objects;
 
-  console.log(photos.near_earth_objects)
+// Obtem todos os arrays de objetos por data e os concatena
+const todosAsteroides = Object.values(objetosPorData).flat();
 
-      photos.forEach(photo => {
+// Agora você pode iterar com forEach
+
+      
+
+todosAsteroides.forEach(photo => {
+        console.log(photo);
+        // photo.forEach(image => {
+
+        // })
         
         let name = document.createElement('h2')
-        name.innerText = photos.name
+        name.innerText = photo.name
+        name.style.color = ('white')
 
 let dMax = document.createElement('h3')
-dMax.innerText = photos.estimated_diameter.estimaed_diameter_max
+dMax.innerText = photo.estimated_diameter.meters.estimated_diameter_max
+dMax.style.color = ('white')
 
 let dMin = document.createElement('h3')
-dMin.innerText = photos.estimated_diameter.estimaed_diameter_min
+dMin.innerText = photo.estimated_diameter.meters.estimated_diameter_min
+dMin.style.color = ('white')
 
 let perigo = document.createElement('h3')
-perigo.innerText = photos.is_potentially_hazardous_asteroid
+perigo.innerText = photo.is_potentially_hazardous_asteroid
+perigo.style.color = ('white')
 
+// let espaco = document.createElement(padding)
 
         let col = document.createElement('col')  
         col.classList.add('col-4')
+        col.style.padding = '10px '
 
+        // col.appendChild(espaco)
         col.appendChild(name)
         col.appendChild(perigo)
         col.appendChild(dMax)
