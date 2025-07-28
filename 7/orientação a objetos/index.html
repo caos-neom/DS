@@ -1,0 +1,85 @@
+<script>
+
+class Veiculo{
+    constructor(marca,modelo){
+        this.marca = marca
+        this.modelo = modelo
+    }
+
+acelerar(){
+    console.log(`${this.modelo} acelerou`)
+}
+frear(){
+    console.log(`${this.modelo} freou`)
+}
+
+}
+
+let Veiculo_1 = new Veiculo('Fiat','Uno')
+console.log(`seu veiculo é ${Veiculo_1.modelo}`)
+Veiculo_1.acelerar()
+Veiculo_1.frear()
+console.log(Veiculo_1)
+
+class Pessoa{
+    constructor(nome,cpf,idade,telefone,altura,traumas){
+this.nome = nome
+this.cpf  = cpf
+this.idade = idade
+this.telefone = telefone
+this.altura = altura
+this.traumas = traumas
+    }
+correr() {
+    console.log('A pessoa correu')
+}
+
+pular() {
+    console.log('a pessoa pulou')
+}
+
+falar() {
+    console.log(`${this.nome} disse ola`)
+}
+}
+
+let pessoa = new Pessoa('esquerovaldo','132','45','8922','1.24','letra g')
+console.log(pessoa)
+pessoa.correr()
+pessoa.pular()
+pessoa.falar()
+
+
+class Animal{
+    constructor(especie,comida,locomoção,assacina){
+this.especie = especie
+this.comida = comida
+this.locomoção = locomoção
+this.assacina = assacina
+    }
+   percorreu() {
+    console.log(`${this.especie} ${this.locomoção} 1 km atrás de comida`)
+} 
+ caça() {console.log(`${this.especie} pressica se alimentar e ele é ${this.comida} então ${this.assacina} precisa matar`)}
+
+morte() {console.log(`${this.especie} foi caçado por uma onça enquanto se alimentava e morreu`)}
+}
+
+let animal = new Animal('pato','onivero','voa','não')
+console.log(animal)
+animal.percorreu()
+animal.caça()
+animal.morte()
+
+class onça extends Animal{
+    constructor(especie,comida,locomoção,assacina,camufla,onça)
+    super(especie,comida,locomoção,assacina)
+    this.camufla = camufla
+    this.onça = onça
+}
+
+
+
+
+
+</script>
