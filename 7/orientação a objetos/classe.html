@@ -1,0 +1,64 @@
+<Script>
+    class pessoa {
+        constructor(nome,idade,cpf){
+this.nome = nome
+this.idade = idade
+this.cpf = cpf
+
+        }
+        falar(){
+            console.log('olá')
+        }
+        andar(){
+            console.log('A pessoa andou')
+        }
+    }
+
+    let professor = new pessoa('rebiscreud' , '22' , '566566556');
+console.log(professor.nome)
+console.log(professor.idade)
+console.log(professor.cpf)
+console.log(professor.falar())
+console.log(professor.andar())
+
+let aluno = new pessoa('anastacia', '16' , '1')
+console.log(aluno)
+
+class usuario {
+// no constructor está oorrendo o ENCAPSULAMENTO, ou seja, os dados
+// estão sendo agrupados dentro da classe
+
+    constructor(tipo, online , email , senha ){
+        this.tipo = tipo
+        this.online = online
+        this.email = email
+        this.senha = senha
+    }
+
+// aqui está ocorrendo o POLIMORFISMO ou seja a classe pode se comportar
+// diferentes como conectar,desconectar etc
+
+    conectar(){
+        console.log('usuario conectou')
+    }
+    vizualizar(){
+        console.log('usuario vizualizou')
+    }
+}
+
+let cliente = new usuario('comum' , 'online' , 'bacalhaucompés@gmail' , 'bacalhau')
+console.log(cliente.tipo)
+console.log(cliente.online)
+console.log(cliente.email)
+console.log(cliente.senha)
+console.log(cliente.conectar())
+console.log(cliente.vizualizar())
+
+let vendedor = new usuario('administrador' , 'offline' , 'cltaaaaaa@gmail' , 'meradinho')
+console.log(vendedor.tipo)
+console.log(vendedor.online)
+console.log(vendedor.email)
+console.log(vendedor.senha)
+console.log(vendedor.conectar())
+console.log(vendedor.vizualizar())
+</Script>
