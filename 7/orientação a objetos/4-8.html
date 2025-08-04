@@ -1,0 +1,67 @@
+<script>
+
+class Funcionario {
+    constructor(nome, salario_base, horas_trabalhadas){
+        this.nome = nome
+        this.salario_base = salario_base //use snaek_case
+        this.horas_trabalhadas = horas_trabalhadas
+    }
+    //set irá trocar o valor da variavel nome
+    set nomeFuncionario(nome){
+        this.nome = nome
+    }
+
+    get nomeFuncionario(){
+            return this.nome
+        }
+
+    set salarioBase(salario_base){
+        this.salario_base = salario_base
+    }
+
+    get salarioBase(){
+        return this.salarioBase
+    }
+
+    set horasTrabalhadas(horas_trabalhadas){
+        this.horas_trabalhadas = horas_trabalhadas
+    }
+
+    get horasTrabalhadas(){
+        return this.horasTrabalhadas
+    }
+
+    
+
+    calcularSalario(){ //use camelCase
+ return this.salario_base * this.horas_trabalhadas
+    }
+
+   
+}
+
+ let progamador_bakend = new Funcionario()
+ progamador_bakend.nomeFuncionario = 'ariovaldo'
+ progamador_bakend.salario_base = 15
+ progamador_bakend.horas_trabalhadas = 37
+ console.log(progamador_bakend.calcularSalario())
+
+let desenvolvedor_frontend = new Funcionario()
+desenvolvedor_frontend.nomeFuncionario = 'ghei'
+ desenvolvedor_frontend.salario_base = 78
+ desenvolvedor_frontend.horas_trabalhadas = 28
+ console.log(desenvolvedor_frontend.calcularSalario())
+
+let gerente = new Funcionario()
+gerente.nomeFuncionario = 'jeorgiviko'
+ gerente.salario_base = 2327
+ gerente.horas_trabalhadas = 15
+ console.log(gerente.calcularSalario())
+
+let ux_desing = new Funcionario()
+ux_desing.nomeFuncionario = 'heremilson'
+ ux_desing.salario_base = 8
+ ux_desing.horas_trabalhadas = 86
+ console.log(ux_desing.calcularSalario())
+
+</script>
