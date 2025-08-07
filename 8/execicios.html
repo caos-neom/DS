@@ -1,0 +1,95 @@
+<script>
+
+class pessoa {
+    constructor(nome, idade, profissão){
+        this.nome = nome
+        this.idade = idade
+        this.profissão = profissão
+
+    }
+
+    set nomePessoa(nome){
+        this.nome = nome
+    }
+
+    get nomePessoa(){
+            return this.nome
+        }
+
+    set idadePEssoa(idade){
+        this.idade = idade
+    }    
+
+    get idadePEssoa(){
+        return this.idade
+    }
+
+    set profissãoPessoa(profissão){
+        this.profissão = profissão
+    }
+
+    get profissãoPessoa(){
+            return this.profissão
+        }
+}
+
+let gente2 = new pessoa()
+gente2.nomePessoa = 'uzileitom'
+gente2.idadePEssoa = 34
+gente2.profissãoPessoa = 'enge-uber'
+console.log(gente2)
+
+let gente1 = new pessoa()
+gente1.nomePessoa = 'tyroivione'
+gente1.idadePEssoa = 26
+gente1.profissãoPessoa = 'dese-atendent'
+console.log(gente1)
+</script>
+
+<script>
+
+class conta_banco{
+    constructor(titular, saldo, numConta){
+        this.titular = titular
+        this.saldo = saldo
+        this.numConta = numConta
+        
+    }
+    set titularBanco(titular){
+        this.titular = titular
+    }
+
+    get titularBanco(){
+            return this.titular
+        }
+
+    set saldoBanco(saldo){
+        this.saldo = saldo
+    }    
+
+    get saldoBanco(){
+        return this.saldo
+    }
+
+    set numBanco(numConta){
+        this.numConta = numConta
+    }
+
+    get numBanco(){
+            return this.numConta
+        }
+
+        calSaldo(){
+            return this.saldo - this.sacar + this.depositar
+        }
+
+}
+
+let conta1 = new conta_banco()
+conta1.titularBanco = 'lebitros'
+conta1.numBanco = '123'
+conta1.saldoBanco = '100'
+conta1.sacar = '20'
+conta1.depositar = '30'
+console.log(conta1.calSaldo())
+</script>
