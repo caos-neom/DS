@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 
 class pessoa {
     constructor(nome, idade, profissão){
@@ -44,52 +44,90 @@ gente1.nomePessoa = 'tyroivione'
 gente1.idadePEssoa = 26
 gente1.profissãoPessoa = 'dese-atendent'
 console.log(gente1)
-</script>
+</script> -->
 
 <script>
 
-class conta_banco{
-    constructor(titular, saldo, numConta){
-        this.titular = titular
-        this.saldo = saldo
-        this.numConta = numConta
-        
-    }
-    set titularBanco(titular){
-        this.titular = titular
-    }
+    class conta_banco {
+        constructor(titular, saldo, numConta,) {
+            this.titular = titular
+            this.saldo = saldo
+            this.numConta = numConta
 
-    get titularBanco(){
+        }
+        set titularBanco(titular) {
+            this.titular = titular
+        }
+
+        get titularBanco() {
             return this.titular
         }
 
-    set saldoBanco(saldo){
-        this.saldo = saldo
-    }    
+        set saldoBanco(saldo) {
+            this.saldo = saldo
+        }
 
-    get saldoBanco(){
-        return this.saldo
-    }
+        get saldoBanco() {
+            return this.saldo
+        }
 
-    set numBanco(numConta){
-        this.numConta = numConta
-    }
+        set numBanco(numConta) {
+            this.numConta = numConta
+        }
 
-    get numBanco(){
+        get numBanco() {
             return this.numConta
         }
 
-        calSaldo(){
+        calSaldo() {
             return this.saldo - this.sacar + this.depositar
         }
 
-}
+    }
 
-let conta1 = new conta_banco()
-conta1.titularBanco = 'lebitros'
-conta1.numBanco = '123'
-conta1.saldoBanco = '100'
-conta1.sacar = '20'
-conta1.depositar = '30'
-console.log(conta1.calSaldo())
+    let conta2 = new conta_banco()
+    conta2.titularBanco = 'lebitros'
+    conta2.numBanco = '123'
+    conta2.saldoBanco = 100
+    conta2.sacar = 20
+    conta2.depositar = 30
+    console.log(conta2)
+    console.log(conta2.calSaldo())
+
+    let conta1 = new conta_banco()
+    conta1.titularBanco = 'chiquinho'
+    conta1.numBanco = '456'
+    conta1.saldoBanco = 100
+    conta1.sacar = 10
+    conta1.depositar = 50
+    console.log(conta1)
+    console.log(conta1.calSaldo())
+
+    class poupança extends conta_banco {
+        constructor(juros) {
+            this.juros = juros
+        }
+
+        set jurosPoupança(juros) {
+            this.juros = juros
+        }
+
+        get jurosPoupança() {
+            return this.juros
+        }
+
+         saldoP(){
+            return calSaldo() * (1 + (this.juros / 100))
+        }
+
+    }
+
+    conta1 = new poupança()
+    conta1.juros = 13
+    console.log(conta1.saldoP())
+
+    conta2 = new poupança()
+    conta1.juros = 450
+    console.log(conta2.saldoP())
+
 </script>
