@@ -91,22 +91,13 @@ console.log(gente1)
 
 let conta1 = new conta_banco()
     
-    conta1.titularBanco = 'chiquinho'
-    conta1.numBanco = '456'
-    conta1.saldoBanco = 100
-    conta1.sacar = 10
-    conta1.depositar = 50
-    console.log(conta1)
-    console.log(conta1.saldoFiBanco)
+    
+    
+let conta2 = new conta_banco()
 
-    let conta2 = new conta_banco()
-    conta2.titularBanco = 'lebitros'
-    conta2.numBanco = '123'
-    conta2.saldoBanco = 100
-    conta2.sacar = 20
-    conta2.depositar = 30
-    console.log(conta2)
-    console.log(conta2.saldoFiBanco)
+    
+    
+    
 
     class poupança extends conta_banco {
         constructor(titular, saldoIN, numConta,saldoF,juros) {
@@ -114,7 +105,7 @@ let conta1 = new conta_banco()
             this.juros = juros
         }
 
-        set jurosPoupança(juros) {
+ set jurosPoupança(juros) {
             this.juros = juros
         }
 
@@ -123,20 +114,34 @@ let conta1 = new conta_banco()
         }
 
          saldoP(){
-            return this.saldoF * (1 + (this.juros / 100))
+            return this.saldoFiBanco * (1 + (this.juros / 100))
         }
 
     }
 
 
     conta1 = new poupança()
+    conta1.titularBanco = 'chiquinho'
+    conta1.numBanco = '456'
+    conta1.saldoBanco = 100
+    conta1.sacar = 10
+    conta1.depositar = 50
     conta1.juros = 13
+    console.log(conta1)
+    console.log(conta1.saldoFiBanco)
     console.log(conta1.saldoP())
     
     
     
     conta2 = new poupança()
-    conta1.juros = 450
+    conta2.titularBanco = 'lebitros'
+    conta2.numBanco = '123'
+    conta2.saldoBanco = 100
+    conta2.sacar = 20
+    conta2.depositar = 30
+    conta2.juros = 45
+    console.log(conta2)
+    console.log(conta2.saldoFiBanco)
     console.log(conta2.saldoP())
 
 </script>
