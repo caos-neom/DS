@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+   <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  </head>
+  <body>
+    
+<div class="container-fluid">
+    <div class="row display flex-justify-content-center">
+        <div class="col-4">
+            <div class="card shadow p-3 m-2">
+                <form>
+                    <div class="mb-3">
+                        <label for="pergunta">sua pergunta digite</label>
+                        <input type="text" name="pergunta" id="pergunta">
+                    </div>
+                    <button class="btn btn-primary" onclick="perguntar()">perguntar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row display-flex-justify-content-center">
+        <div class="col-8 d-flex justify-content-evenly">
+            <div class="card shadow p-3 m-2">Meu texto</div>
+            <div class="card shadow p-3 m-2">yoda texto</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let pergunta = document.getElementById('pergunta').value
+    const KEY = ''
+    const URL = 'https://api.openai.com/v1/chat/completions/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'
+
+    fetch(URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${KEY}`
+        },
+        body: JSON.stringify({
+            model: 'gpt-4o-mini',
+            menssagens :[
+                { role: 'systen', content: 'Me responda como se fosse o mestre Yoda, de forma urta e clara'},
+                { role: 'user', content: pergunta},
+            ],
+            max_tonkens: 50
+        })
+    })
+    .then(resp => resp.json())
+    .then(resp => {
+        console.log(resp)
+    })
+.catch(erro => {
+    console.log(erro)
+})
+.finally(() => {
+    console.log('Finalizado')
+})
+
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  </body>
+</html>
